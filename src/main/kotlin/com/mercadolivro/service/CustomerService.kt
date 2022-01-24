@@ -26,18 +26,19 @@ class CustomerService(
     }
 
     fun update(customer: CustomerModel) {
-        if (!customerRepository.existsById(customer.id!!)) {
+        if(!customerRepository.existsById(customer.id!!)){
             throw Exception()
         }
+
         customerRepository.save(customer)
     }
 
     fun delete(id: Int) {
-        if (!customerRepository.existsById(id)) {
+        if(!customerRepository.existsById(id)){
             throw Exception()
         }
 
         customerRepository.deleteById(id)
     }
-}
 
+}
