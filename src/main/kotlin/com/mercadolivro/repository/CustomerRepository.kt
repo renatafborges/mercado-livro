@@ -1,10 +1,10 @@
 package com.mercadolivro.repository
 
-import com.mercadolivro.model.CustomerModel
+import com.mercadolivro.model.CustomerResponse
 import org.springframework.data.repository.CrudRepository
 
-interface CustomerRepository : CrudRepository<CustomerModel, Int> {
+interface CustomerRepository : CrudRepository<CustomerResponse, Int> {
 
-    fun findByNameContaining(name: String): List<CustomerModel>
+    fun findByNameContaining(name: String): List<CustomerResponse>
 
 }
