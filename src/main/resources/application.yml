@@ -8,3 +8,9 @@ spring:
     password: root
   jackson:
     default-property-inclusion: non_null
+flyway:
+enabled: true
+schemas: mercadolivro
+locations: classpath:/db/migration
+
+flyway.baseline-on-migrate: true
