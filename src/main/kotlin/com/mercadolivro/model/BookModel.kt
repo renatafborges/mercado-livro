@@ -3,7 +3,6 @@ package com.mercadolivro.model
 import com.mercadolivro.enums.BookStatus
 import com.mercadolivro.enums.Errors
 import com.mercadolivro.exception.BadResquestException
-import java.lang.Exception
 import java.math.BigDecimal
 import javax.persistence.*
 
@@ -22,7 +21,7 @@ data class BookModel(
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    var customer: CustomerResponse? = null
+    var customer: CustomerModel? = null
 
 ) {
 
@@ -39,7 +38,7 @@ data class BookModel(
     constructor(id: Int? = null,
                 name : String,
                 price: BigDecimal,
-                customer: CustomerResponse? = null,
+                customer: CustomerModel? = null,
                 status: BookStatus?): this(id, name, price, customer){
      this.status = status }
 

@@ -10,15 +10,27 @@ import com.mercadolivro.enums.BookStatus
 import com.mercadolivro.enums.CustomerStatus
 import com.mercadolivro.model.BookModel
 
-fun PostCustomerRequest.toCustomerModel(): com.mercadolivro.model.CustomerResponse {
-    return com.mercadolivro.model.CustomerResponse(name = name, email = email, status = CustomerStatus.ATIVO)
+fun PostCustomerRequest.toCustomerModel(): com.mercadolivro.model.CustomerModel {
+    return com.mercadolivro.model.CustomerModel(
+        name = name,
+        email = email,
+        status = CustomerStatus.ATIVO,
+        password = this.password
+    )
+
 }
 
-fun PutCustomerRequest.toCustomerModel(previousValue: com.mercadolivro.model.CustomerResponse): com.mercadolivro.model.CustomerResponse {
-    return com.mercadolivro.model.CustomerResponse(id = previousValue.id, name = name, email = email, status = previousValue.status)
+fun PutCustomerRequest.toCustomerModel(previousValue: com.mercadolivro.model.CustomerModel): com.mercadolivro.model.CustomerModel {
+    return com.mercadolivro.model.CustomerModel(
+        id = previousValue.id,
+        name = name,
+        email = email,
+        status = previousValue.status,
+        password = previousValue.password
+    )
 }
 
-fun PostBookRequest.toBookModel(customer: com.mercadolivro.model.CustomerResponse): BookModel {
+fun PostBookRequest.toBookModel(customer: com.mercadolivro.model.CustomerModel): BookModel {
     return BookModel(
         name = this.name,
         price = this.price,
@@ -38,7 +50,7 @@ fun PostBookRequest.toBookModel(customer: com.mercadolivro.model.CustomerRespons
         )
     }
 
-fun com.mercadolivro.model.CustomerResponse.toResponse(): CustomerResponse {
+fun com.mercadolivro.model.CustomerModel.toResponse(): CustomerResponse {
     return CustomerResponse(
         id = this.id,
         name = this.name,

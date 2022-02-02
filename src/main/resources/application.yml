@@ -12,5 +12,8 @@ flyway:
 enabled: true
 schemas: mercadolivro
 locations: classpath:/db/migration
-
 flyway.baseline-on-migrate: true
+
+jwt:
+  secret: 5ca4049e-fe29-4e1c-96f9-9e74fe8c0a84
+  expiration: 999999999

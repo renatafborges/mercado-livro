@@ -4,14 +4,14 @@ import com.mercadolivro.enums.BookStatus
 import com.mercadolivro.enums.Errors
 import com.mercadolivro.exception.NotFoundException
 import com.mercadolivro.model.BookModel
-import com.mercadolivro.model.CustomerResponse
+import com.mercadolivro.model.CustomerModel
 import com.mercadolivro.repository.BookRepository
 import org.springframework.data.domain.Page
 import org.springframework.stereotype.Service
 
 @Service
 class BookService(
-    val bookRepository: BookRepository
+    private val bookRepository: BookRepository
 ) {
 
     fun create(book: BookModel) {
@@ -42,7 +42,7 @@ class BookService(
         bookRepository.save((book))
     }
 
-    fun deleteByCustomer(customer: CustomerResponse) {
+    fun deleteByCustomer(customer: CustomerModel) {
         val books = bookRepository.findByCustomer(customer)
         for(book in books) {
            book.status = BookStatus.DELETADO

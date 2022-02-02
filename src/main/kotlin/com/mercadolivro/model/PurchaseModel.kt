@@ -13,7 +13,7 @@ data class PurchaseModel(
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    val customer: CustomerResponse,
+    val customer: CustomerModel,
 
     @ManyToMany
     @JoinTable(name = "purchase_book",
