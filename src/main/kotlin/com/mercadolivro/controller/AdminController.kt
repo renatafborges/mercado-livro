@@ -11,7 +11,7 @@ class AdminController(
     private val customerService : CustomerService
 ) {
 
-    @GetMapping("/report")
+    @GetMapping("/reports")
     fun report(): String {
         return "This is report. Only admin can see it"
     }
