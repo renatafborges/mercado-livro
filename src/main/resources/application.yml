@@ -1,18 +1,13 @@
 spring:
+  profiles:
+    active: dev
+
   jpa:
     hibernate:
       ddl-auto: update
-  datasource:
-    url: jdbc:mysql://localhost:3306/mercadolivro?createDatabaseIfNotExist=true
-    username: root
-    password: root
+
   jackson:
     default-property-inclusion: non_null
-flyway:
-enabled: true
-schemas: mercadolivro
-locations: classpath:/db/migration
-flyway.baseline-on-migrate: true
 
 jwt:
   secret: 5ca4049e-fe29-4e1c-96f9-9e74fe8c0a84
